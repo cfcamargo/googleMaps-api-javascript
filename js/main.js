@@ -411,7 +411,10 @@ function saveMap() {
 }
 
 function cancel() {
-
+    formModalInput.value = ""
+    formModal.classList.remove('active')
+    initDrawing(null)
+    initMap()
 }
 
 

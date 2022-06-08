@@ -146,14 +146,16 @@ aside ul li{
   height: 30px;
   outline: none;
   border: none;
-  color :#757D81;
+  
   
 }
 
 button.success{
-  background-color: greenyellow;
+  background-color: #A3C7DF;
+  color :#757D81;
 }
 
 button.cancel{
-  background-color: red;
+  background-color: #757D81;
+  color: #A3C7DF;
 }
