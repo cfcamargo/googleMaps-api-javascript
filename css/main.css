@@ -1,0 +1,112 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100vh;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+  background-color: #8599A8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+header h2{
+  color: #A3C7DF;
+}
+
+header .maps-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .6rem 2rem;
+  gap: .5rem;
+  background-color: #757D81;
+  border: none;
+  color: #A3C7DF;
+  cursor: pointer;
+}
+
+main{
+  position: relative;
+  display: flex;
+  
+}
+
+#map{
+  width: 100%;
+  height: calc(100vh - 70px);
+}
+
+aside {
+  opacity: 0;
+  position: absolute;
+  top: 5%;
+  right: -400;
+  height: 90%;
+  width: 300px;
+  background-color: #757D81;
+}
+
+aside.active{
+  opacity: 1;
+  right: 20px;
+}
+
+
+.save-modal{
+  display: none;
+  position: fixed;
+  width: 40%;
+  height: auto;
+  background-color: #8599A8;
+  bottom: 2px;
+  left: 30%;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+}
+
+
+.save-modal.active{
+  display: block;
+}
+
+.save-modal input{
+  width: 100%;
+  height: 30px;
+  background-color: white;
+  outline: none;
+  border: none;
+  padding: 0 1rem;
+}
+
+.save-modal .buttons{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.save-modal .buttons button{
+  width: 80px;
+  height: 30px;
+  outline: none;
+  border: none;
+  color :#757D81;
+}
+
+button.success{
+  background-color: greenyellow;
+}
+
+button.cancel{
+  background-color: red;
+}

@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./css/main.css">
+
+  <script src="https://kit.fontawesome.com/bcc8281122.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+  <header>
+    <h2>My Map</h2>
+    <button class="maps-menu">
+      <i class="fa-solid fa-draw-polygon"></i>
+      Mapas
+    </button>
+  </header>
+
+  <main>
+
+    <section id="map">
+     
+
+    </section>
+
+    <aside id="maps-aside">
+
+    </aside>
+
+  </main>
+
+  <div id="form-modal" class="save-modal">
+
+      <input type="text" placeholder="Digite o nome do mapa" id="mapName">
+
+      <div class="buttons">
+        <button class="cancel">cancelar</button>
+      <button class="success" onclick="saveMap()">salvar</button>
+      </div>
+
+  </div>
+
+
+
+  <script src="./js/main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkZH3UrFOl4HCmKxjNXwqy3BrhBIoDooI&libraries=drawing&callback=initMap"
+   async defer></script>  
+</body>
+</html>
