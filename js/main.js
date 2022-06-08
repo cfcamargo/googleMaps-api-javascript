@@ -445,6 +445,7 @@ function writeMap(i){
         initMap()
         createRectangle(map, mapaRecebido)
     } else if(mapaRecebido.type === 'polygon'){
+        
         initMap()
         createPolygon(map, mapaRecebido)
         console.log(mapaRecebido.path)
@@ -468,18 +469,20 @@ function createCircle(map, obj){
 
 
 function createRectangle(map, obj){
-    const circleData = obj
+    const rectangleData = obj
     new google.maps.Rectangle({
         map: map,
-        bounds : circleData.bounds,
+        bounds : rectangleData.bounds,
     })
 
 }
 
 function createPolygon(map, obj){
-    const circleData = obj
-    console.log(circleData.path)
-    const path = google.maps.geometry.encoding.decodePath(circleData.path)
+
+    const polygonData = obj
+    console.log(polygonData.path)
+    const path = google.maps.geometry.encoding.decodePath(polygonData.path)
+
     new google.maps.Polygon({
         map: map,
         path : path,
