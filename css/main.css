@@ -20,6 +20,7 @@ header {
 
 header h2{
   color: #A3C7DF;
+  
 }
 
 header .maps-menu{
@@ -32,6 +33,12 @@ header .maps-menu{
   border: none;
   color: #A3C7DF;
   cursor: pointer;
+}
+
+
+header .buttons{
+  display: flex;
+  gap: 1rem;
 }
 
 main{
@@ -56,10 +63,13 @@ aside {
   background-color: #757D81;
 
   display: grid;
+  grid-template-rows: auto 1fr;
   gap: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  overflow-y: auto;
 }
 
 aside.active{
@@ -67,7 +77,10 @@ aside.active{
   right: 20px;
 }
 
-
+aside h2{
+  color: #A3C7DF;
+  text-align: center;
+}
 aside ul{
   list-style-type: none;
   display: grid;
@@ -75,11 +88,23 @@ aside ul{
 
   justify-content: flex-start;
   align-items: flex-start;
+
+
 }
+
 
 
 aside ul li{
   font-size: 1.3rem;
+
+  
+  padding: .5rem .6rem;
+  border: 1px solid #A3C7DF;
+  text-align: center;
+
+  color:#A3C7DF ;
+
+  cursor: pointer;
 }
 
 .save-modal{
@@ -122,6 +147,7 @@ aside ul li{
   outline: none;
   border: none;
   color :#757D81;
+  
 }
 
 button.success{

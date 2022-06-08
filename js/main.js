@@ -10,13 +10,9 @@ if (myMaps) {
 }
 
 
-
-
 let actualMap = {}
 
-let overlayType = 0;
-
-const buttonMapMenu = document.querySelector('.maps-menu');
+const buttonMapMenu = document.querySelector('#maps-list');
 const asideMaps = document.querySelector('#maps-aside')
 
 
@@ -35,6 +31,8 @@ mapName = formModalInput.value
 
 const mapContainer = document.querySelector('#map')
 
+
+var map;
 
 const initDrawing = (map) => {
     let drawindManager = new google.maps.drawing.DrawingManager({
@@ -55,13 +53,8 @@ const initDrawing = (map) => {
 
         actualMap = {}
 
-        circle.setEditable(true)
-        circle.setDraggable(true)
-
         const center = circle.getCenter()
         const radius = circle.getRadius()
-
-        overlayType = 1
 
         formModal.classList.add('active')
 
@@ -79,13 +72,8 @@ const initDrawing = (map) => {
 
         actualMap = {}
 
-        rectangle.setEditable(true)
-        rectangle.setDraggable(true)
 
         const bounds = rectangle.getBounds()
-
-
-        overlayType = 2
 
         formModal.classList.add('active')
 
@@ -102,13 +90,8 @@ const initDrawing = (map) => {
 
         actualMap = {}
 
-        polygon.setEditable(true)
-        polygon.setDraggable(true)
 
         const encodedPath = google.maps.geometry.encoding.encodePath(polygon.getPath())
-
-
-        overlayType = 3
 
         formModal.classList.add('active')
 
@@ -390,9 +373,16 @@ function initMap() {
         ]
     }
 
-    const map = new google.maps.Map(mapContainer, mapOptions);
+    map = new google.maps.Map(mapContainer, mapOptions);
 
-    initDrawing(map)
+    
+}
+
+function initDrawindInmap(){
+    initDrawing(null)
+    initMap()
+
+    initDrawing(map) 
 }
 
 
@@ -411,7 +401,11 @@ function saveMap() {
 
     listMaps()
 
-    map.setMap(null)
+    initDrawing(null)
+    initMap()
+    
+
+
 
 
 }
@@ -428,29 +422,66 @@ function listMaps() {
 
     mapList.innerHTML = ''
 
+    let i = 0
+
     for (mapa of mapas) {
+        mapList.innerHTML += `<li onClick=writeMap(${i})>${mapa.mapName}</li>`
 
-        const mapItem = document.createElement('li');
-        
-        mapItem.classList.add('map-item')
-
-        const mapItemContent = document.createTextNode(`${mapa.mapName}`)
-
-        mapItem.appendChild(mapItemContent)
-
-        mapList.appendChild(mapItem)
-
-
+        i++
     }
+
+}
+
+function writeMap(i){    
+    const mapaRecebido = mapas[i]
+
+    if(mapaRecebido.type === 'circle'){
+        initMap()
+        createCircle(map, mapaRecebido)
+    } else if(mapaRecebido.type === 'rectangle'){
+        initMap()
+        createRectangle(map, mapaRecebido)
+    } else if(mapaRecebido.type === 'polygon'){
+        initMap()
+        createPolygon(map, mapaRecebido)
+        console.log(mapaRecebido.path)
+    }
+}
+
+
+function createCircle(map, obj){
+    
+    console.log(obj)
+    console.log(map)
+    const circleData = obj
+    new google.maps.Circle({
+        map: map,
+        radius: circleData.radius,
+        center : circleData.center,
+    })
 
 
 }
 
 
+function createRectangle(map, obj){
+    const circleData = obj
+    new google.maps.Rectangle({
+        map: map,
+        bounds : circleData.bounds,
+    })
 
+}
 
-
-// botoes do menu
+function createPolygon(map, obj){
+    const circleData = obj
+    console.log(circleData.path)
+    const path = google.maps.geometry.encoding.decodePath(circleData.path)
+    new google.maps.Polygon({
+        map: map,
+        path : path,
+    })
+}
 
 
 

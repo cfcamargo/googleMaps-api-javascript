@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,48 +10,59 @@
   <script src="https://kit.fontawesome.com/bcc8281122.js" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
+
 <body>
-  
+
   <header>
     <h2>My Map</h2>
-    <button class="maps-menu">
-      <i class="fa-solid fa-draw-polygon"></i>
-      Mapas
-    </button>
+    <div class="buttons">
+      <button class="maps-menu" onclick="initDrawindInmap()">
+        Criar mapa
+      </button>
+
+      <button class="maps-menu" id="maps-list">
+        <i class="fa-solid fa-draw-polygon"></i>
+        Meus Mapas
+      </button>
+
+
+    </div>
   </header>
 
   <main>
 
     <section id="map">
-     
+
 
     </section>
 
     <aside id="maps-aside">
-        <h2>Meus Mapas</h2>
+      <h2>Meus Mapas</h2>
 
-        <ul id="mapList">
-            
-        </ul>
+      <ul id="mapList">
+        
+      </ul>
     </aside>
 
   </main>
 
   <div id="form-modal" class="save-modal">
 
-      <input type="text" placeholder="Digite o nome do mapa" id="mapName">
+    <input type="text" placeholder="Digite o nome do mapa" id="mapName">
 
-      <div class="buttons">
-        <button class="cancel">cancelar</button>
+    <div class="buttons">
+      <button class="cancel">cancelar</button>
       <button class="success" onclick="saveMap()">salvar</button>
-      </div>
+    </div>
 
   </div>
 
 
 
   <script src="./js/main.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkZH3UrFOl4HCmKxjNXwqy3BrhBIoDooI&libraries=drawing&callback=initMap"
-   async defer></script>  
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkZH3UrFOl4HCmKxjNXwqy3BrhBIoDooI&libraries=drawing&callback=initMap"
+    async defer></script>
 </body>
+
 </html>
