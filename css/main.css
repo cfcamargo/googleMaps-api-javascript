@@ -13,6 +13,7 @@
 
 html {
   height: 100vh;
+  font-family: 'Poppins', sans-serif;
 }
 
 header {
@@ -34,7 +35,9 @@ header .maps-menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .6rem 2rem;
+
+  height: 36px;
+  padding: 0 2rem;
   gap: .5rem;
   background-color: var(--tomato);
   border: none;
@@ -158,6 +161,7 @@ aside ul li:hover {
   outline: none;
   border: none;
   padding: 0 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .save-modal .buttons {
