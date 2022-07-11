@@ -3,10 +3,10 @@
 ## Desafio
 
 - O desafio era criar uma aplicação para consumir a api do google maps java script
-- Na aplicação o usuário pudesse criar um desenho, um shape ou uma forma
-- O usuario poderia salvar seu denho
+- Na aplicação o usuário criar um desenho, um shape ou uma forma
+- O usuario poderia salvar seu desenho
 - A aplicação teria que listar os desenhos salvos pelo usuário
-- ao clicar no desenho da lista, a aplicação deveria mostrar o desnho salvo.
+- ao clicar no desenho da lista, a aplicação deveria mostrar o desenho salvo.
 
 ## Layout 
 - Como o intuito do desafio era consumir a API, foi criado um layout simples.
